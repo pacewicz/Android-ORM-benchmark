@@ -97,7 +97,7 @@ public abstract class ORMTest {
         Library readLibrary = readComplex(writeNumber + 1, 0, 0).first.get(writeNumber);
 
         for (int i = 0; i < NUMBER_OF_PASSES; i++) {
-            List<Book> books = randomObjectsGenerator.generateBooks(BOOKS_SIMPLE_BATCH_SIZE, readLibrary);
+            List<Book> books = randomObjectsGenerator.generateOrphanedBooks(BOOKS_SIMPLE_BATCH_SIZE);
             simpleProfiler.start();
             writeSimple(books);
             allTime[i] = simpleProfiler.stop();

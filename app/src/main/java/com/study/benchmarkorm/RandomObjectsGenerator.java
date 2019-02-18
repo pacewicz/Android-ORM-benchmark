@@ -18,10 +18,23 @@ public class RandomObjectsGenerator {
                 Math.abs(random.nextInt()) + 1, Math.abs(random.nextInt()) + 1, library);
     }
 
+    public Book nextBook() {
+        return new Book(randomString.nextString(), randomString.nextString(),
+                Math.abs(random.nextInt()) + 1, Math.abs(random.nextInt()) + 1);
+    }
+
     public List<Book> generateBooks(int quantity, Library library) {
         List<Book> books = new ArrayList<>(quantity);
         for (int i = 0; i < quantity; i++) {
             books.add(nextBook(library));
+        }
+        return books;
+    }
+
+    public List<Book> generateOrphanedBooks(int quantity) {
+        List<Book> books = new ArrayList<>(quantity);
+        for (int i = 0; i < quantity; i++) {
+            books.add(nextBook());
         }
         return books;
     }
